@@ -1,7 +1,7 @@
 #!/bin/bash
-# Build the embeddable headless WebKit runtime from THIS fork.
+# Build the WKEC (WebKit(tm) Embedded Core) headless runtime from THIS fork.
 #
-# This builds WebCore / JavaScriptCore / WebGPU (Release, arm64) from the current
+# WKEC builds WebCore / JavaScriptCore / WebGPU (Release, arm64) from the current
 # checkout — the `headless-embedding` branch carries the in-process WebGPU patch —
 # and prepares the frameworks for embedding in a non-WebKit app (e.g. the
 # WebKitRenderer XCFramework). Two things a stock WebKit build does NOT do, both
@@ -52,11 +52,11 @@ if ! xcrun --sdk macosx --find metal >/dev/null 2>&1; then
     echo "WARNING: Metal toolchain not found. If the build fails in ANGLE, run:"
     echo "    xcodebuild -downloadComponent MetalToolchain"
 fi
-echo "    fork checkout: $ROOT  (branch: $(git -C "$ROOT" branch --show-current 2>/dev/null || echo '?'))"
+echo "    WKEC fork checkout: $ROOT  (branch: $(git -C "$ROOT" branch --show-current 2>/dev/null || echo '?'))"
 
 [ "$DO_CLEAN" = 1 ] && { echo "==> Cleaning $WK_OUT"; rm -rf "$WK_OUT"; }
 
-echo "==> Building WebKit (Release) — this takes a while…"
+echo "==> Building WKEC (Release) — this takes a while…"
 export WEBKIT_OUTPUTDIR="$WK_OUT"
 Tools/Scripts/build-webkit --release
 
