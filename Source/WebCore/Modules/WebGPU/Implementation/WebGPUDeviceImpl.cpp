@@ -34,6 +34,7 @@
 #include "WebGPUBindGroupLayoutImpl.h"
 #include "WebGPUBufferDescriptor.h"
 #include "WebGPUBufferImpl.h"
+#include "WebGPUCommandBufferDescriptor.h"
 #include "WebGPUCommandEncoderDescriptor.h"
 #include "WebGPUCommandEncoderImpl.h"
 #include "WebGPUComputePipelineDescriptor.h"
@@ -51,6 +52,7 @@
 #include "WebGPUQuerySetImpl.h"
 #include "WebGPURenderBundleEncoderDescriptor.h"
 #include "WebGPURenderBundleEncoderImpl.h"
+#include "WebGPURenderPassDescriptor.h"
 #include "WebGPURenderPipelineDescriptor.h"
 #include "WebGPURenderPipelineImpl.h"
 #include "WebGPUSamplerDescriptor.h"
@@ -743,28 +745,39 @@ void DeviceImpl::setLabelInternal(const String& label)
     wgpuDeviceSetLabel(m_backing.get(), label.utf8().data());
 }
 
+// These "invalid" objects back JS WebGPU objects after they are ended or finished
+// (see GPURenderPassEncoder::end and friends). The GPU-process path (RemoteDeviceProxy)
+// builds them from an invalid command encoder; mirror that here so the in-process
+// implementation is usable without the GPU process.
 Ref<CommandEncoder> DeviceImpl::invalidCommandEncoder()
 {
-    RELEASE_ASSERT_NOT_REACHED();
+    return createCommandEncoder(std::nullopt).releaseNonNull();
 }
 
 Ref<CommandBuffer> DeviceImpl::invalidCommandBuffer()
 {
-    RELEASE_ASSERT_NOT_REACHED();
+    Ref commandEncoder = invalidCommandEncoder();
+    CommandBufferDescriptor descriptor;
+    return commandEncoder->finish(descriptor).releaseNonNull();
 }
 
 Ref<RenderPassEncoder> DeviceImpl::invalidRenderPassEncoder()
 {
-    RELEASE_ASSERT_NOT_REACHED();
+    Ref commandEncoder = invalidCommandEncoder();
+    RenderPassDescriptor descriptor;
+    return commandEncoder->beginRenderPass(descriptor).releaseNonNull();
 }
+
 Ref<ComputePassEncoder> DeviceImpl::invalidComputePassEncoder()
 {
-    RELEASE_ASSERT_NOT_REACHED();
+    Ref commandEncoder = invalidCommandEncoder();
+    return commandEncoder->beginComputePass(std::nullopt).releaseNonNull();
 }
 
 Ref<BindGroupLayout> DeviceImpl::emptyBindGroupLayout() const
 {
-    RELEASE_ASSERT_NOT_REACHED();
+    BindGroupLayoutDescriptor descriptor;
+    return const_cast<DeviceImpl*>(this)->createBindGroupLayout(descriptor).releaseNonNull();
 }
 
 } // namespace WebCore::WebGPU

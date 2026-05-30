@@ -98,11 +98,11 @@ private:
     void setLabelInternal(const String&) final;
     void pauseAllErrorReporting(bool pause) final;
 
-    [[noreturn]] Ref<CommandEncoder> NODELETE invalidCommandEncoder() final;
-    [[noreturn]] Ref<CommandBuffer> NODELETE invalidCommandBuffer() final;
-    [[noreturn]] Ref<RenderPassEncoder> NODELETE invalidRenderPassEncoder() final;
-    [[noreturn]] Ref<ComputePassEncoder> NODELETE invalidComputePassEncoder() final;
-    [[noreturn]] Ref<BindGroupLayout> NODELETE emptyBindGroupLayout() const final;
+    Ref<CommandEncoder> NODELETE invalidCommandEncoder() final;
+    Ref<CommandBuffer> NODELETE invalidCommandBuffer() final;
+    Ref<RenderPassEncoder> NODELETE invalidRenderPassEncoder() final;
+    Ref<ComputePassEncoder> NODELETE invalidComputePassEncoder() final;
+    Ref<BindGroupLayout> NODELETE emptyBindGroupLayout() const final;
 
     WebGPUPtr<WGPUDevice> m_backing;
     const Ref<ConvertToBackingContext> m_convertToBackingContext;
