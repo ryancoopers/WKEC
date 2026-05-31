@@ -48,6 +48,7 @@
 
 using WebCore::ResourceUsageOverlay;
 
+__attribute__((objc_runtime_name("WKEC_WebResourceUsageOverlayLayer")))
 @interface WebResourceUsageOverlayLayer : CALayer {
     WeakPtr<ResourceUsageOverlay> m_overlay;
 }

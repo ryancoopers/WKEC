@@ -70,6 +70,7 @@ typedef void(^WebItemProviderFileCallback)(NSURL * _Nullable, NSError * _Nullabl
  of each item. Private UTI types, such as those vended through the injected editing bundle SPI, are
  considered to be higher fidelity than the other default types.
  */
+__attribute__((objc_runtime_name("WKEC_WebItemProviderRegistrationInfoList")))
 WEBCORE_EXPORT @interface WebItemProviderRegistrationInfoList : NSObject
 
 - (void)addRepresentingObject:(id <NSItemProviderWriting>)object;
@@ -91,6 +92,7 @@ WEBCORE_EXPORT @interface WebItemProviderRegistrationInfoList : NSObject
 
 typedef void (^WebItemProviderFileLoadBlock)(NSArray<NSURL *> *);
 
+__attribute__((objc_runtime_name("WKEC_WebItemProviderPasteboard")))
 WEBCORE_EXPORT @interface WebItemProviderPasteboard : NSObject<AbstractPasteboard>
 
 + (instancetype)sharedInstance;

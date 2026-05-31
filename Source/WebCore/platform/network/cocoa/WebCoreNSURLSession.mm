@@ -58,6 +58,7 @@ static NSDate * __nullable networkLoadMetricsDate(MonotonicTime time)
     return [NSDate dateWithTimeIntervalSince1970:value];
 }
 
+__attribute__((objc_runtime_name("WKEC_WebCoreNSURLSessionTaskTransactionMetrics")))
 @interface WebCoreNSURLSessionTaskTransactionMetrics : NSObject
 - (instancetype)_initWithMetrics:(WebCore::NetworkLoadMetrics&&)metrics onTarget:(GuaranteedSerialFunctionDispatcher*)targetDispatcher;
 /* FIXME: This is a safer cpp false positive (rdar://161063702). */
@@ -233,6 +234,7 @@ static NSDate * __nullable networkLoadMetricsDate(MonotonicTime time)
 
 @end
 
+__attribute__((objc_runtime_name("WKEC_WebCoreNSURLSessionTaskMetrics")))
 @interface WebCoreNSURLSessionTaskMetrics : NSObject
 - (instancetype)_initWithMetrics:(WebCore::NetworkLoadMetrics&&)metrics onTarget:(nonnull GuaranteedSerialFunctionDispatcher *)targetDispatcher;
 /* FIXME: This is a safer cpp false positive (rdar://161063702). */

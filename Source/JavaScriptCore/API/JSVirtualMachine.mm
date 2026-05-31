@@ -61,6 +61,7 @@ static NSMapTable *wrapperCache() WTF_REQUIRES_LOCK(wrapperCacheMutex)
     return globalWrapperCache;
 }
 
+__attribute__((objc_runtime_name("WKEC_JSVMWrapperCache")))
 @interface JSVMWrapperCache : NSObject
 + (void)addWrapper:(JSVirtualMachine *)wrapper forJSContextGroupRef:(JSContextGroupRef)group;
 + (JSVirtualMachine *)wrapperForJSContextGroupRef:(JSContextGroupRef)group;

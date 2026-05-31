@@ -70,6 +70,7 @@ using WebCore::ScrollbarThemeMac;
 using WebCore::scrollbarMap;
 using WebCore::ScrollbarSet;
 
+__attribute__((objc_runtime_name("WKEC_WebScrollbarPrefsObserver")))
 @interface WebScrollbarPrefsObserver : NSObject
 {
 }

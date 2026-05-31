@@ -42,6 +42,7 @@ SPECIALIZE_TYPE_TRAITS_BEGIN(AVPlayerItemVideoOutput)
 static bool isType(const AVPlayerItemOutput& output) { return [&output isKindOfClass:PAL::getAVPlayerItemVideoOutputClassSingleton()]; }
 SPECIALIZE_TYPE_TRAITS_END()
 
+__attribute__((objc_runtime_name("WKEC_WebQueuedVideoOutputDelegate")))
 @interface WebQueuedVideoOutputDelegate : NSObject<AVPlayerItemOutputPullDelegate> {
     WeakPtr<WebCore::QueuedVideoOutput> _parent;
 }

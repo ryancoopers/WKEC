@@ -71,6 +71,7 @@
 #import <pal/cocoa/AVFoundationSoftLink.h>
 
 // Delegate class for AVAssetResourceLoader to provide data from memory
+__attribute__((objc_runtime_name("WKEC_WebCoreAudioFileReaderLoaderDelegate")))
 @interface WebCoreAudioFileReaderLoaderDelegate : NSObject<AVAssetResourceLoaderDelegate> {
     std::span<const uint8_t> _data;
     String _mimeType;

@@ -32,6 +32,7 @@
 #import <wtf/RetainPtr.h>
 #import <wtf/RunLoop.h>
 
+__attribute__((objc_runtime_name("WKEC_WebTextIndicatorLayer")))
 WEBCORE_EXPORT @interface WebTextIndicatorLayer : CALayer {
     RefPtr<WebCore::TextIndicator> _textIndicator;
     RetainPtr<NSArray> _bounceLayers;

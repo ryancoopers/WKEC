@@ -70,6 +70,7 @@ static float getAVSpeechUtteranceMaximumSpeechRate()
 #define AVSpeechUtteranceDefaultSpeechRate getAVSpeechUtteranceDefaultSpeechRate()
 #define AVSpeechUtteranceMaximumSpeechRate getAVSpeechUtteranceMaximumSpeechRate()
 
+__attribute__((objc_runtime_name("WKEC_WebSpeechSynthesisWrapper")))
 @interface WebSpeechSynthesisWrapper : NSObject<AVSpeechSynthesizerDelegate> {
     WeakPtr<WebCore::PlatformSpeechSynthesizer> m_synthesizerObject;
     // Hold a Ref to the utterance so that it won't disappear until the synth is done with it.

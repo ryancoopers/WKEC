@@ -21,7 +21,7 @@ typedef NS_ENUM(NSUInteger, RTCH265PacketizationMode) {
 };
 
 RTC_OBJC_EXPORT
-__attribute__((objc_runtime_name("WK_RTCCodecSpecificInfoH265")))
+__attribute__((objc_runtime_name("WKEC_RTCCodecSpecificInfoH265")))
 @interface RTCCodecSpecificInfoH265 : NSObject <RTCCodecSpecificInfo>
 
 @property(nonatomic, assign) RTCH265PacketizationMode packetizationMode;

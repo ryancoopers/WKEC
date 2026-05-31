@@ -23,6 +23,7 @@
  * THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+__attribute__((objc_runtime_name("WKEC_WebArchiveResourceWebResourceHandler")))
 @interface WebArchiveResourceWebResourceHandler : NSObject
 - (id)resourceForData:(NSData *)data URL:(NSURL *)url MIMEType:(NSString *)mimeType textEncodingName:(NSString *)textEncodingName frameName:(NSString *)frameName;
 @end

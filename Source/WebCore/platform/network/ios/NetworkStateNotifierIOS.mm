@@ -42,6 +42,7 @@
 @end
 #endif
 
+__attribute__((objc_runtime_name("WKEC_WebNetworkStateObserver")))
 @interface WebNetworkStateObserver : NSObject {
     BlockPtr<void()> block;
 }

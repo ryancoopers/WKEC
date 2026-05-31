@@ -14,7 +14,7 @@
 #import "RTCVideoEncoder.h"
 
 RTC_OBJC_EXPORT
-__attribute__((objc_runtime_name("WK_RTCVideoEncoderAV1")))
+__attribute__((objc_runtime_name("WKEC_RTCVideoEncoderAV1")))
 @interface RTCVideoEncoderAV1 : NSObject
 
 /* This returns a AV1 encoder that can be returned from a RTCVideoEncoderFactory injected into

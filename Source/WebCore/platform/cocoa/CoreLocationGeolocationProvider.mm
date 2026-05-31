@@ -50,6 +50,7 @@ SOFT_LINK_CONSTANT(CoreLocation, kCLLocationAccuracyHundredMeters, double)
 #define kCLLocationAccuracyBest getkCLLocationAccuracyBestSingleton()
 #define kCLLocationAccuracyHundredMeters getkCLLocationAccuracyHundredMetersSingleton()
 
+__attribute__((objc_runtime_name("WKEC_WebCLLocationManager")))
 @interface WebCLLocationManager : NSObject<CLLocationManagerDelegate>
 @end
 

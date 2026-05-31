@@ -42,6 +42,7 @@
 #import <wtf/TZoneMallocInlines.h>
 
 
+__attribute__((objc_runtime_name("WKEC_WebCoreTextTrackRepresentationCocoaHelper")))
 @interface WebCoreTextTrackRepresentationCocoaHelper : NSObject <CALayerDelegate> {
     CheckedPtr<WebCore::TextTrackRepresentationCocoa> _parent;
 }

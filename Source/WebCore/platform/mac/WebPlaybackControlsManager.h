@@ -39,6 +39,7 @@ struct MediaSelectionOption;
 #if ENABLE(WEB_PLAYBACK_CONTROLS_MANAGER)
 
 WEBCORE_EXPORT
+__attribute__((objc_runtime_name("WKEC_WebPlaybackControlsManager")))
 @interface WebPlaybackControlsManager : NSObject
     <AVTouchBarPlaybackControlsControlling>
 {

@@ -23,7 +23,7 @@ typedef NS_ENUM(NSInteger, RTCPriority) {
 };
 
 RTC_OBJC_EXPORT
-__attribute__((objc_runtime_name("WK_RTCRtpEncodingParameters")))
+__attribute__((objc_runtime_name("WKEC_RTCRtpEncodingParameters")))
 @interface RTCRtpEncodingParameters : NSObject
 
 /** The idenfifier for the encoding layer. This is used in simulcast. */

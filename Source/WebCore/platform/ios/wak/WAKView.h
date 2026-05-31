@@ -53,6 +53,7 @@ enum {
 
 @class WAKWindow;
 
+__attribute__((objc_runtime_name("WKEC_WAKView")))
 WEBCORE_EXPORT @interface WAKView : WAKResponder
 
 + (WAKView *)focusView;

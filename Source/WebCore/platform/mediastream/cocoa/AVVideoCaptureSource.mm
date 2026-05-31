@@ -82,6 +82,7 @@ using namespace WebCore;
 - (instancetype)initWithMediaEnvironment:(NSString *)mediaEnvironment;
 @end
 
+__attribute__((objc_runtime_name("WKEC_WebCoreAVVideoCaptureSourceObserver")))
 @interface WebCoreAVVideoCaptureSourceObserver : NSObject<AVCaptureVideoDataOutputSampleBufferDelegate,
 #if HAVE(AVCAPTUREPHOTOOUTPUT_READINESS_COORDINATOR)
     AVCapturePhotoOutputReadinessCoordinatorDelegate,

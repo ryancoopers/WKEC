@@ -48,6 +48,7 @@ class SpatialAudioPlaybackHelperIOS;
 
 using namespace WebCore;
 
+__attribute__((objc_runtime_name("WKEC_WebSpatialAudioPlaybackObserver")))
 @interface WebSpatialAudioPlaybackObserver : NSObject {
     WeakPtr<WebCore::SpatialAudioPlaybackHelperIOS> _callback;
 }

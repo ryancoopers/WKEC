@@ -69,11 +69,11 @@ class ObjCVideoEncoder : public VideoEncoder {
       CodecSpecificInfo codecSpecificInfo;
       // Because of symbol conflict, isKindOfClass doesn't work as expected.
       // See https://bugs.webkit.org/show_bug.cgi?id=198782.
-      if ([NSStringFromClass([info class]) isEqual:@"WK_RTCCodecSpecificInfoH264"]) {
+      if ([NSStringFromClass([info class]) isEqual:@"WKEC_RTCCodecSpecificInfoH264"]) {
         // if ([info isKindOfClass:[RTCCodecSpecificInfoH264 class]]) {
         codecSpecificInfo = [(RTCCodecSpecificInfoH264 *)info nativeCodecSpecificInfo];
 #ifndef DISABLE_H265
-      } else if ([NSStringFromClass([info class]) isEqual:@"WK_RTCCodecSpecificInfoH265"]) {
+      } else if ([NSStringFromClass([info class]) isEqual:@"WKEC_RTCCodecSpecificInfoH265"]) {
         // if ([info isKindOfClass:[RTCCodecSpecificInfoH265 class]]) {
         codecSpecificInfo = [(RTCCodecSpecificInfoH265 *)info nativeCodecSpecificInfo];
 #endif

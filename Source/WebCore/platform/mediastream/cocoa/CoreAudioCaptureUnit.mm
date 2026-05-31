@@ -49,6 +49,7 @@ void registerAudioInputMuteChangeListener(WebCoreAudioInputMuteChangeListener*);
 void unregisterAudioInputMuteChangeListener(WebCoreAudioInputMuteChangeListener*);
 }
 
+__attribute__((objc_runtime_name("WKEC_WebCoreAudioInputMuteChangeListener")))
 @interface WebCoreAudioInputMuteChangeListener : NSObject {
 }
 

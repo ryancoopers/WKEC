@@ -28,6 +28,7 @@
 
 #import <pal/spi/cocoa/QuartzCoreSPI.h>
 
+__attribute__((objc_runtime_name("WKEC_WebActionDisablingCALayerDelegate")))
 WEBCORE_EXPORT @interface WebActionDisablingCALayerDelegate : NSObject <CALayerDelegate>
 
 + (instancetype)shared;

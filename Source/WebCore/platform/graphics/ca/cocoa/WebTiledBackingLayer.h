@@ -33,6 +33,7 @@ class TiledBacking;
 enum class ContentsFormat : uint8_t;
 }
 
+__attribute__((objc_runtime_name("WKEC_WebTiledBackingLayer")))
 @interface WebTiledBackingLayer : CALayer {
     std::unique_ptr<WebCore::TileController> _tileController;
 }

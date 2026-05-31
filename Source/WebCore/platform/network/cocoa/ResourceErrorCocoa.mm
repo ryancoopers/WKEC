@@ -47,6 +47,7 @@
 // We need this because client code (Safari) wants an NSError with NSURLErrorDomain as its domain.
 // The Foundation code below does that and sets up appropriate certificate keys in the NSError.
 
+__attribute__((objc_runtime_name("WKEC_WebCustomNSURLError")))
 @interface WebCustomNSURLError : NSError
 
 @end

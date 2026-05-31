@@ -72,6 +72,7 @@ namespace WebCore {
 - (BOOL)hasWebScriptKey:(NSString *)name;
 @end
 
+__attribute__((objc_runtime_name("WKEC_WebScriptObjectPrivate")))
 WEBCORE_EXPORT @interface WebScriptObjectPrivate : NSObject
 {
 @public

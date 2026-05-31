@@ -32,6 +32,7 @@
 #import <Foundation/NSProcessInfo.h>
 #import <wtf/MainThread.h>
 
+__attribute__((objc_runtime_name("WKEC_WebLowPowerModeObserver")))
 @interface WebLowPowerModeObserver : NSObject
 @property (nonatomic) CheckedPtr<WebCore::LowPowerModeNotifier> notifier;
 @property (nonatomic, readonly) BOOL isLowPowerModeEnabled;

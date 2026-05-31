@@ -26,6 +26,7 @@
 #include <wtf/Platform.h>
 #if PLATFORM(IOS_FAMILY)
 
+__attribute__((objc_runtime_name("WKEC_WebBackgroundTaskController")))
 WEBCORE_EXPORT @interface WebBackgroundTaskController : NSObject
 
 @property (nonatomic) NSUInteger invalidBackgroundTaskIdentifier;

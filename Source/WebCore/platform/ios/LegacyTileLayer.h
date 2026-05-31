@@ -31,6 +31,7 @@ namespace WebCore {
 class LegacyTileGrid;
 }
 
+__attribute__((objc_runtime_name("WKEC_LegacyTileLayer")))
 @interface LegacyTileLayer : CALayer {
     WebCore::LegacyTileGrid* _tileGrid;
     unsigned _paintCount;
@@ -41,6 +42,7 @@ class LegacyTileGrid;
 @property (nonatomic, readonly) BOOL isRenderingInContext;
 @end
 
+__attribute__((objc_runtime_name("WKEC_LegacyTileHostLayer")))
 @interface LegacyTileHostLayer : CALayer {
     WebCore::LegacyTileGrid* _tileGrid;
 }

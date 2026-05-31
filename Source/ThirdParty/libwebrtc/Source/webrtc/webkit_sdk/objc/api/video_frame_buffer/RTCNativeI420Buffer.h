@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** RTCI420Buffer implements the RTCI420Buffer protocol */
 RTC_OBJC_EXPORT
-__attribute__((objc_runtime_name("WK_RTCI420Buffer")))
+__attribute__((objc_runtime_name("WKEC_RTCI420Buffer")))
 @interface RTCI420Buffer : NSObject<RTCI420Buffer>
 @end
 

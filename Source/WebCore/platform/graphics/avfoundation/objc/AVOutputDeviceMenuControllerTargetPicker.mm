@@ -47,6 +47,7 @@ using namespace WebCore;
 static NSString *externalOutputDeviceAvailableKeyName = @"externalOutputDeviceAvailable";
 static NSString *externalOutputDevicePickedKeyName = @"externalOutputDevicePicked";
 
+__attribute__((objc_runtime_name("WKEC_WebAVOutputDeviceMenuControllerHelper")))
 @interface WebAVOutputDeviceMenuControllerHelper : NSObject {
     WeakPtr<AVOutputDeviceMenuControllerTargetPicker> m_callback;
 }

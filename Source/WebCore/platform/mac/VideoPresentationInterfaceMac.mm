@@ -66,6 +66,7 @@ using WebCore::MediaPlayerEnums;
 using WebCore::VideoPresentationInterfaceMac;
 using WebCore::PlaybackSessionModel;
 
+__attribute__((objc_runtime_name("WKEC_WebVideoViewContainer")))
 @interface WebVideoViewContainer : NSView
 @property (nonatomic, weak) id<WebVideoViewContainerDelegate> videoViewContainerDelegate;
 @end
@@ -95,6 +96,7 @@ enum class PIPState {
     ExitingPIP
 };
 
+__attribute__((objc_runtime_name("WKEC_WebVideoPresentationInterfaceMacObjC")))
 @interface WebVideoPresentationInterfaceMacObjC : NSObject <PIPViewControllerDelegate, WebVideoViewContainerDelegate> {
     CheckedPtr<WebCore::VideoPresentationInterfaceMac> _videoPresentationInterfaceMac;
     NSSize _videoDimensions;
@@ -538,6 +540,7 @@ ALLOW_DEPRECATED_IMPLEMENTATIONS_BEGIN
 ALLOW_DEPRECATED_IMPLEMENTATIONS_END
 @end
 
+__attribute__((objc_runtime_name("WKEC_WebSeekableVideoPresentationInterfaceMacObjC")))
 @interface WebSeekableVideoPresentationInterfaceMacObjC : WebVideoPresentationInterfaceMacObjC
 @end
 

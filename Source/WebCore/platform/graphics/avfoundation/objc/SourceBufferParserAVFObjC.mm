@@ -66,6 +66,7 @@
 @property (readonly) NSData *initializationData;
 @end
 
+__attribute__((objc_runtime_name("WKEC_WebAVStreamDataParserListener")))
 @interface WebAVStreamDataParserListener : NSObject<AVStreamDataParserOutputHandling> {
     ThreadSafeWeakPtr<WebCore::SourceBufferParserAVFObjC> _parent;
     WeakObjCPtr<AVStreamDataParser> _parser;
@@ -145,6 +146,7 @@ ALLOW_DEPRECATED_IMPLEMENTATIONS_END
 
 @end
 
+__attribute__((objc_runtime_name("WKEC_WebAVStreamDataParserWithKeySpecifierListener")))
 @interface WebAVStreamDataParserWithKeySpecifierListener : WebAVStreamDataParserListener
 @end
 

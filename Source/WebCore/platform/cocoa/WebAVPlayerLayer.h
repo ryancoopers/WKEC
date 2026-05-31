@@ -41,6 +41,7 @@ namespace WebCore {
 class VideoPresentationModel;
 }
 
+__attribute__((objc_runtime_name("WKEC_WebAVPlayerLayer")))
 WEBCORE_EXPORT @interface WebAVPlayerLayer : CALayer
 @property (nonatomic, retain, nullable) NSString *videoGravity;
 @property (nonatomic, getter=isReadyForDisplay) BOOL readyForDisplay;

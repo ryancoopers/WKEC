@@ -36,6 +36,7 @@
 
 #import <pal/cf/CoreMediaSoftLink.h>
 
+__attribute__((objc_runtime_name("WKEC_WebEffectiveRateChangedListenerObjCAdapter")))
 @interface WebEffectiveRateChangedListenerObjCAdapter : NSObject
 - (instancetype)init NS_UNAVAILABLE;
 - (instancetype)initWithEffectiveRateChangedListener:(const WebCore::EffectiveRateChangedListener&)listener;

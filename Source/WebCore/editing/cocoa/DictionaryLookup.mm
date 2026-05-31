@@ -72,6 +72,7 @@ SOFT_LINK(UIKitMacHelper, UINSSharedRevealController, id<UINSRevealController>, 
 
 #if PLATFORM(MAC)
 
+__attribute__((objc_runtime_name("WKEC_WebRevealHighlight")))
 @interface WebRevealHighlight : NSObject<RVPresenterHighlightDelegate>
 
 @property (nonatomic, readonly) NSRect highlightRect;
@@ -143,6 +144,7 @@ SOFT_LINK(UIKitMacHelper, UINSSharedRevealController, id<UINSRevealController>, 
 
 #elif PLATFORM(MACCATALYST) // PLATFORM(MAC)
 
+__attribute__((objc_runtime_name("WKEC_WebRevealHighlight")))
 @interface WebRevealHighlight : NSObject<UIRVPresenterHighlightDelegate>
 
 - (instancetype)initWithHighlightRect:(NSRect)highlightRect view:(UIView *)view image:(RefPtr<WebCore::Image>&&)image;

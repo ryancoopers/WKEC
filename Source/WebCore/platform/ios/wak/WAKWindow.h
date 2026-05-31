@@ -65,6 +65,7 @@ typedef enum {
 extern NSString * const WAKWindowScreenScaleDidChangeNotification;
 extern NSString * const WAKWindowVisibilityDidChangeNotification;
 
+__attribute__((objc_runtime_name("WKEC_WAKWindow")))
 WEBCORE_EXPORT @interface WAKWindow : WAKResponder
 {
     CALayer *_hostLayer;

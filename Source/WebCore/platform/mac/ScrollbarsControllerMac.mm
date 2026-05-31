@@ -64,6 +64,7 @@ static NSScrollerImp *scrollerImpForScrollbar(Scrollbar& scrollbar)
 
 } // namespace WebCore
 
+__attribute__((objc_runtime_name("WKEC_WebScrollerImpPairDelegate")))
 @interface WebScrollerImpPairDelegate : NSObject <NSScrollerImpPairDelegate> {
     WeakPtr<WebCore::ScrollableArea> _scrollableArea;
 }
@@ -200,6 +201,7 @@ using WebCore::LogOverlayScrollbars;
 
 #endif
 
+__attribute__((objc_runtime_name("WKEC_WebScrollbarPartAnimation")))
 @interface WebScrollbarPartAnimation : NSObject {
     SingleThreadWeakPtr<WebCore::Scrollbar> _scrollbar;
     RetainPtr<NSScrollerImp> _scrollerImp;
@@ -327,6 +329,7 @@ using WebCore::LogOverlayScrollbars;
 
 @end
 
+__attribute__((objc_runtime_name("WKEC_WebScrollerImpDelegate")))
 @interface WebScrollerImpDelegate : NSObject<NSAnimationDelegate, NSScrollerImpDelegate> {
     SingleThreadWeakPtr<WebCore::Scrollbar> _scrollbar;
 

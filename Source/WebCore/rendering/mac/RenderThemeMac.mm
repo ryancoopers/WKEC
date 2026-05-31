@@ -98,6 +98,7 @@
 #include "Page.h"
 #endif
 
+__attribute__((objc_runtime_name("WKEC_WebCoreRenderThemeNotificationObserver")))
 @interface WebCoreRenderThemeNotificationObserver : NSObject
 @end
 

@@ -39,6 +39,7 @@
 
 #import <pal/ios/QuickLookSoftLink.h>
 
+__attribute__((objc_runtime_name("WKEC_WebPreviewConverterDelegate")))
 @interface WebPreviewConverterDelegate : NSObject
 - (instancetype)initWithDelegate:(WebCore::PreviewPlatformDelegate&)delegate;
 @end

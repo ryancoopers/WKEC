@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  codecs, create custom implementations of RTCVideoEncoderFactory and RTCVideoDecoderFactory.
  */
 RTC_OBJC_EXPORT
-__attribute__((objc_runtime_name("WK_RTCDefaultVideoEncoderFactory")))
+__attribute__((objc_runtime_name("WKEC_RTCDefaultVideoEncoderFactory")))
 @interface RTCDefaultVideoEncoderFactory : NSObject <RTCVideoEncoderFactory>
 
 - (id)initWithH265:(bool)supportH265 vp9Profile0:(bool)supportsVP9Profile0 vp9Profile2:(bool)supportsVP9Profile2 av1:(bool)supportAv1;

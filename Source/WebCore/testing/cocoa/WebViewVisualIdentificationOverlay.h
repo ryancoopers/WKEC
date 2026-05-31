@@ -32,6 +32,7 @@
 #import <WebCore/CocoaView.h>
 
 WEBCORE_EXPORT
+__attribute__((objc_runtime_name("WKEC_WebViewVisualIdentificationOverlay")))
 @interface WebViewVisualIdentificationOverlay : NSObject
 
 + (void)installForWebViewIfNeeded:(CocoaView *)view kind:(NSString *)kind deprecated:(BOOL)isDeprecated;

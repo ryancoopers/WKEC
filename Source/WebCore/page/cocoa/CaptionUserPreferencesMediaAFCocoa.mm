@@ -31,6 +31,7 @@
 #import <wtf/cocoa/TypeCastsCocoa.h>
 #import <wtf/spi/cocoa/NSObjCRuntimeSPI.h>
 
+__attribute__((objc_runtime_name("WKEC_WebCaptionUserPreferencesMediaAFWeakObserver")))
 @interface WebCaptionUserPreferencesMediaAFWeakObserver : NSObject {
     WeakPtr<WebCore::CaptionUserPreferencesMediaAF> m_weakPtr;
 }

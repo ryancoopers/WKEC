@@ -29,6 +29,7 @@ namespace WebCore {
 class ArchiveResource;
 }
 
+__attribute__((objc_runtime_name("WKEC_WebArchiveResourceFromNSAttributedString")))
 @interface WebArchiveResourceFromNSAttributedString : NSObject {
 @package
     RefPtr<WebCore::ArchiveResource> resource;

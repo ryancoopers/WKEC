@@ -840,6 +840,7 @@ static bool renderThemePaintSwitch(OptionSet<ControlStyle::State> states, const 
 
 } // namespace WebCore
 
+__attribute__((objc_runtime_name("WKEC_WebCoreRenderThemeBundle")))
 @interface WebCoreRenderThemeBundle : NSObject
 @end
 

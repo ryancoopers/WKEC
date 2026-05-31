@@ -47,6 +47,7 @@
 #import <pal/cf/CoreMediaSoftLink.h>
 #import <pal/cocoa/AVFoundationSoftLink.h>
 
+__attribute__((objc_runtime_name("WKEC_WebAVAssetWriterDelegate")))
 @interface WebAVAssetWriterDelegate : NSObject <AVAssetWriterDelegate> {
     ThreadSafeWeakPtr<WebCore::MediaRecorderPrivateWriterListener> m_writer;
 }

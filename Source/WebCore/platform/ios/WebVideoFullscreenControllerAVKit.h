@@ -36,6 +36,7 @@ namespace WebCore {
 class HTMLVideoElement;
 }
 
+__attribute__((objc_runtime_name("WKEC_WebVideoFullscreenController")))
 WEBCORE_EXPORT @interface WebVideoFullscreenController : NSObject
 - (void)setVideoElement:(NakedPtr<WebCore::HTMLVideoElement>)videoElement;
 - (NakedPtr<WebCore::HTMLVideoElement>)videoElement;

@@ -49,6 +49,7 @@ enum class FeatureToAnimate {
     ExpansionTransition
 };
 
+__attribute__((objc_runtime_name("WKEC_WebScrollbarPartAnimationMac")))
 @interface WebScrollbarPartAnimationMac : NSAnimation {
     ThreadSafeWeakPtr<WebCore::ScrollerMac> _scroller;
     FeatureToAnimate _featureToAnimate;
@@ -120,6 +121,7 @@ enum class FeatureToAnimate {
 
 @end
 
+__attribute__((objc_runtime_name("WKEC_WebScrollerImpDelegateMac")))
 @interface WebScrollerImpDelegateMac : NSObject<NSAnimationDelegate, NSScrollerImpDelegate> {
     ThreadSafeWeakPtr<WebCore::ScrollerMac> _scroller;
 

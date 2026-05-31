@@ -31,6 +31,7 @@
 #import <AppKit/AppKit.h>
 #import <wtf/text/WTFString.h>
 
+__attribute__((objc_runtime_name("WKEC_WebValidationPopover")))
 @interface WebValidationPopover : NSPopover
 @end
 

@@ -31,6 +31,7 @@
 #import "AudioFileReader.h"
 #import <wtf/cocoa/SpanCocoa.h>
 
+__attribute__((objc_runtime_name("WKEC_WebCoreAudioBundleClass")))
 @interface WebCoreAudioBundleClass : NSObject
 @end
 

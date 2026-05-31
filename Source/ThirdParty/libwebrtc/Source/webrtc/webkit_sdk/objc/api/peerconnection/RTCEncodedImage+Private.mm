@@ -35,7 +35,7 @@ class ObjCEncodedImageBuffer : public webrtc::EncodedImageBufferInterface {
 
 // A simple wrapper around webrtc::EncodedImageBufferInterface to make it usable with associated
 // objects.
-__attribute__((objc_runtime_name("WK_RTCWrappedEncodedImageBuffer")))
+__attribute__((objc_runtime_name("WKEC_RTCWrappedEncodedImageBuffer")))
 @interface RTCWrappedEncodedImageBuffer : NSObject
 @property(nonatomic) webrtc::scoped_refptr<webrtc::EncodedImageBufferInterface> buffer;
 - (instancetype)initWithEncodedImageBuffer:

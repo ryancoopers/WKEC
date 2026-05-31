@@ -14,7 +14,7 @@
 #import "RTCVideoEncoder.h"
 
 RTC_OBJC_EXPORT
-__attribute__((objc_runtime_name("WK_RTCVideoEncoderVP8")))
+__attribute__((objc_runtime_name("WKEC_RTCVideoEncoderVP8")))
 @interface RTCVideoEncoderVP8 : NSObject
 
 /* This returns a VP8 encoder that can be returned from a RTCVideoEncoderFactory injected into

@@ -27,6 +27,7 @@
 
 #import <AppKit/AppKit.h>
 
+__attribute__((objc_runtime_name("WKEC_WebPanel")))
 PAL_EXPORT @interface WebPanel : NSPanel
 
 - (instancetype)init;

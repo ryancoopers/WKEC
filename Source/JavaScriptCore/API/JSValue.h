@@ -45,6 +45,7 @@
  different JSVirtualMachine. Doing so will raise an Objective-C exception.
 */
 NS_CLASS_AVAILABLE(10_9, 7_0)
+__attribute__((objc_runtime_name("WKEC_JSValue")))
 @interface JSValue : NSObject
 
 /*!

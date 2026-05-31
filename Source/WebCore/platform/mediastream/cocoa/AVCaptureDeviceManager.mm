@@ -46,6 +46,7 @@
 
 using namespace WebCore;
 
+__attribute__((objc_runtime_name("WKEC_WebCoreAVCaptureDeviceManagerObserver")))
 @interface WebCoreAVCaptureDeviceManagerObserver : NSObject {
     AVCaptureDeviceManager* m_callback;
 }

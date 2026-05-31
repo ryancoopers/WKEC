@@ -38,6 +38,7 @@
 
 #import <pal/mac/ScreenCaptureKitSoftLink.h>
 
+__attribute__((objc_runtime_name("WKEC_WebDisplayMediaPromptHelper")))
 @interface WebDisplayMediaPromptHelper : NSObject <SCContentSharingPickerObserver> {
     WeakPtr<WebCore::ScreenCaptureKitSharingSessionManager> _callback;
     BOOL _observingPicker;

@@ -42,6 +42,7 @@ SOFT_LINK_CLASS_OPTIONAL(SpringBoardServices, SBSStatusBarStyleOverridesCoordina
 
 using namespace WebCore;
 
+__attribute__((objc_runtime_name("WKEC_WebCoreMediaCaptureStatusBarHandler")))
 @interface WebCoreMediaCaptureStatusBarHandler : NSObject<SBSStatusBarStyleOverridesCoordinatorDelegate>
 -(id)initWithManager:(MediaCaptureStatusBarManager*)manager;
 -(void)validateIsStopped;

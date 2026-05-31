@@ -1,34 +1,13 @@
 #!/bin/bash
-# Build the WKEC (WebKit(tm) Embedded Core) headless runtime from THIS fork.
+# Build and stage the WKEC (WebKit(tm) Embedded Core) headless runtime.
 #
-# WKEC builds WebCore / JavaScriptCore / WebGPU (Release, arm64) from the current
-# checkout — the `headless-embedding` branch carries the in-process WebGPU patch —
-# and prepares the frameworks for embedding in a non-WebKit app (e.g. the
-# WebKitRenderer XCFramework). Two things a stock WebKit build does NOT do, both
-# required for embedding, are handled here:
-#
-#   1. WebCore is relinked with WEBCORE_ALLOWABLE_CLIENTS="" so non-WebKit code can
-#      link against it (otherwise: `ld: not an allowed client of WebCore`).
-#   2. Every install name + cross-reference is repointed to @rpath / @loader_path so
-#      the EMBEDDED JavaScriptCore is always used, never the system one. If a system
-#      JavaScriptCore is loaded alongside ours (CFNetwork pulls it in to evaluate a
-#      proxy PAC script), two libpas/bmalloc heaps corrupt each other and the app
-#      panics with `pas_deallocation_did_fail` on the first page load.
-#
-# Requirements: full Xcode (not just Command Line Tools) + the Metal Toolchain:
-#     sudo xcodebuild -runFirstLaunch
-#     xcodebuild -downloadComponent MetalToolchain
-# ~40 GB free disk. The first build is slow (~1-3 h); subsequent builds are incremental.
+# Requires full Xcode + Metal toolchain and ~40 GB free disk.
 #
 # Usage:
 #   ./build-headless-runtime.sh [--stage <dir>] [--output <build-dir>] [--clean]
-#     --stage <dir>    After building, copy the runtime (WebCore/JavaScriptCore/WebGPU
-#                      frameworks + libANGLE-shared.dylib + libwebrtc.dylib + the
-#                      usr/local/include headers) into <dir>. Point this at your
-#                      consumer's vendored runtime, e.g.
-#                        --stage /path/to/WebKitRenderer/ThirdParty/WebKit
-#     --output <dir>   WebKit build output dir (default: ./WebKitBuild).
-#     --clean          Remove the build output dir before building (full rebuild).
+#     --stage <dir>    Copy the runtime into <dir> (replaces it).
+#     --output <dir>   Build output dir (default: ./WebKitBuild).
+#     --clean          Remove the build output dir before building.
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")" && pwd)"
@@ -40,7 +19,7 @@ while [ $# -gt 0 ]; do
         --stage)  STAGE="${2:?--stage needs a directory}"; shift 2 ;;
         --output) WK_OUT="${2:?--output needs a directory}"; shift 2 ;;
         --clean)  DO_CLEAN=1; shift ;;
-        -h|--help) sed -n '2,40p' "$0"; exit 0 ;;
+        -h|--help) sed -n '2,12p' "$0"; exit 0 ;;
         *) echo "Unknown option: $1 (see --help)"; exit 1 ;;
     esac
 done
@@ -52,19 +31,27 @@ if ! xcrun --sdk macosx --find metal >/dev/null 2>&1; then
     echo "WARNING: Metal toolchain not found. If the build fails in ANGLE, run:"
     echo "    xcodebuild -downloadComponent MetalToolchain"
 fi
-echo "    WKEC fork checkout: $ROOT  (branch: $(git -C "$ROOT" branch --show-current 2>/dev/null || echo '?'))"
 
 [ "$DO_CLEAN" = 1 ] && { echo "==> Cleaning $WK_OUT"; rm -rf "$WK_OUT"; }
 
-echo "==> Building WKEC (Release) — this takes a while…"
+# Build only the embedded frameworks, not the WebKit/WebKitLegacy umbrella
+# (WebKitLegacy re-exports bridge classes this fork renames and would fail to link).
+echo "==> Building WKEC frameworks (Release)"
 export WEBKIT_OUTPUTDIR="$WK_OUT"
-Tools/Scripts/build-webkit --release
+for scheme in JavaScriptCore WebGPU WebCore; do
+    echo "    building scheme: $scheme"
+    xcodebuild -workspace WebKit.xcworkspace -scheme "$scheme" -configuration Release \
+        SYMROOT="$WK_OUT" OBJROOT="$WK_OUT" build
+done
 
-echo "==> Relinking WebCore without allowable_client (so non-WebKit code can link it)"
+# Relink WebCore without allowable_client so non-WebKit code can link it.
+echo "==> Relinking WebCore without allowable_client"
 xcodebuild -workspace WebKit.xcworkspace -scheme WebCore -configuration Release \
     SYMROOT="$WK_OUT" OBJROOT="$WK_OUT" WEBCORE_ALLOWABLE_CLIENTS="" build
 
-echo "==> Repointing install names to @rpath/@loader_path (embedded-JSC isolation)"
+# Repoint install names to @rpath/@loader_path so the embedded JavaScriptCore is
+# always used, never the system one (two libpas/bmalloc heaps would corrupt).
+echo "==> Repointing install names to @rpath/@loader_path"
 JSC_BIN="$REL/JavaScriptCore.framework/Versions/A/JavaScriptCore"
 WC_BIN="$REL/WebCore.framework/Versions/A/WebCore"
 GPU_BIN="$REL/WebGPU.framework/Versions/A/WebGPU"
@@ -74,18 +61,15 @@ RTC_BIN="$REL/libwebrtc.dylib"
 JSC_RP="@rpath/JavaScriptCore.framework/Versions/A/JavaScriptCore"
 WC_RP="@rpath/WebCore.framework/Versions/A/WebCore"
 GPU_RP="@rpath/WebGPU.framework/Versions/A/WebGPU"
-ANGLE_RP="@loader_path/../../../libANGLE-shared.dylib"   # frameworks sit one dir below the vendor root
+ANGLE_RP="@loader_path/../../../libANGLE-shared.dylib"
 RTC_RP="@loader_path/../../../libwebrtc.dylib"
 
-# 1) Set each binary's own install id.
 install_name_tool -id "$JSC_RP"   "$JSC_BIN"   2>/dev/null || true
 install_name_tool -id "$WC_RP"    "$WC_BIN"    2>/dev/null || true
 install_name_tool -id "$GPU_RP"   "$GPU_BIN"   2>/dev/null || true
 install_name_tool -id "$ANGLE_RP" "$ANGLE_BIN" 2>/dev/null || true
 install_name_tool -id "$RTC_RP"   "$RTC_BIN"   2>/dev/null || true
 
-# 2) Repoint every cross-reference (whatever absolute/system path it currently is)
-#    to the canonical @rpath/@loader_path form, by basename.
 repoint() {
     local bin="$1"; [ -f "$bin" ] || return 0
     otool -L "$bin" | awk 'NR>1{print $1}' | while read -r dep; do
@@ -101,12 +85,10 @@ repoint() {
 }
 for b in "$WC_BIN" "$GPU_BIN" "$JSC_BIN" "$ANGLE_BIN" "$RTC_BIN"; do repoint "$b"; done
 
-# 3) Re-sign (ad-hoc) after editing load commands.
 for b in "$WC_BIN" "$JSC_BIN" "$GPU_BIN" "$ANGLE_BIN" "$RTC_BIN"; do
     [ -f "$b" ] && codesign --force --sign - "$b" || true
 done
 
-# 4) Sanity check: no embedded binary may reference a system JavaScriptCore.
 echo "==> Verifying no /System JavaScriptCore references remain"
 bad=0
 for b in "$WC_BIN" "$GPU_BIN" "$JSC_BIN" "$ANGLE_BIN" "$RTC_BIN"; do
@@ -114,7 +96,7 @@ for b in "$WC_BIN" "$GPU_BIN" "$JSC_BIN" "$ANGLE_BIN" "$RTC_BIN"; do
         echo "    ERROR: $b still references the system JavaScriptCore"; bad=1
     fi
 done
-[ "$bad" = 0 ] && echo "    OK — all references are @rpath/@loader_path" || { echo "    install-name repointing failed"; exit 1; }
+[ "$bad" = 0 ] && echo "    OK" || { echo "    install-name repointing failed"; exit 1; }
 
 if [ -n "$STAGE" ]; then
     echo "==> Staging runtime into $STAGE"
@@ -122,10 +104,11 @@ if [ -n "$STAGE" ]; then
     cp -R "$REL/WebCore.framework" "$REL/JavaScriptCore.framework" "$REL/WebGPU.framework" "$STAGE/"
     cp "$REL/libANGLE-shared.dylib" "$REL/libwebrtc.dylib" "$STAGE/"
     cp -R "$REL/usr/local/include/." "$STAGE/include/"
+    # Drop .tbd stubs so consumers link the @rpath binaries, not the system copies.
+    find "$STAGE" -name '*.tbd' -delete
     echo "    staged."
 fi
 
 echo ""
 echo "Done. Built runtime is in: $REL"
 [ -n "$STAGE" ] && echo "Vendored runtime staged at: $STAGE"
-echo "Embed alongside each other: WebCore/JavaScriptCore/WebGPU .frameworks + libANGLE-shared.dylib + libwebrtc.dylib"

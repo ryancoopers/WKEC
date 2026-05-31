@@ -70,6 +70,7 @@ enum class WebCoreNSURLSessionCORSAccessCheckResults : uint8_t {
 NS_ASSUME_NONNULL_BEGIN
 
 // Created on the main thread; used on targetQueue.
+__attribute__((objc_runtime_name("WKEC_WebCoreNSURLSession")))
 WEBCORE_EXPORT @interface WebCoreNSURLSession : NSObject {
 @private
     RefPtr<WebCore::PlatformMediaResourceLoader> _loader;
@@ -134,6 +135,7 @@ WEBCORE_EXPORT @interface WebCoreNSURLSession : NSObject {
 @end
 
 // Created on com.apple.avfoundation.customurl.nsurlsession
+__attribute__((objc_runtime_name("WKEC_WebCoreNSURLSessionDataTask")))
 @interface WebCoreNSURLSessionDataTask : NSObject {
     WeakObjCPtr<WebCoreNSURLSession> _session; // Accesssed from operation queue, main and loader thread. Must be accessed through Obj-C property.
     RefPtr<GuaranteedSerialFunctionDispatcher> _targetDispatcher;

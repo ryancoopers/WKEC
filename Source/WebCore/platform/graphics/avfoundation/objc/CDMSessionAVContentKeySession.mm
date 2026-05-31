@@ -72,6 +72,7 @@ typedef NSString *AVContentKeySystem;
 - (void)renewExpiringContentKeyResponseData;
 @end
 
+__attribute__((objc_runtime_name("WKEC_WebCDMSessionAVContentKeySessionDelegate")))
 @interface WebCDMSessionAVContentKeySessionDelegate : NSObject<AVContentKeySessionDelegate> {
     ThreadSafeWeakPtr<WebCore::CDMSessionAVContentKeySession> m_parent;
 }

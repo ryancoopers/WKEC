@@ -30,6 +30,7 @@
 #import <AppKit/NSWindow.h>
 #import <WebCore/PlatformExportMacros.h>
 
+__attribute__((objc_runtime_name("WKEC_WebCoreFullScreenWindow")))
 WEBCORE_EXPORT @interface WebCoreFullScreenWindow : NSWindow
 @end
 

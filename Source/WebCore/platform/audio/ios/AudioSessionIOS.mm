@@ -42,6 +42,7 @@
 
 #import <pal/cocoa/AVFoundationSoftLink.h>
 
+__attribute__((objc_runtime_name("WKEC_WebInterruptionObserverHelper")))
 @interface WebInterruptionObserverHelper : NSObject {
     WebCore::AudioSessionIOS* _callback;
 }

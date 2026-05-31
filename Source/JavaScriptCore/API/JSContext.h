@@ -40,6 +40,7 @@
  are tied to a context.
 */
 JSC_CLASS_AVAILABLE(macos(10.9), ios(7.0))
+__attribute__((objc_runtime_name("WKEC_JSContext")))
 @interface JSContext : NSObject
 
 /*!

@@ -25,11 +25,14 @@
 
 #import <QuartzCore/QuartzCore.h>
 
+__attribute__((objc_runtime_name("WKEC_WebSystemBackdropLayer")))
 @interface WebSystemBackdropLayer : CALayer
 @end
 
+__attribute__((objc_runtime_name("WKEC_WebLightSystemBackdropLayer")))
 @interface WebLightSystemBackdropLayer : WebSystemBackdropLayer
 @end
 
+__attribute__((objc_runtime_name("WKEC_WebDarkSystemBackdropLayer")))
 @interface WebDarkSystemBackdropLayer : WebSystemBackdropLayer
 @end

@@ -30,6 +30,7 @@
 #import <Foundation/Foundation.h>
 #import <wtf/text/StringView.h>
 
+__attribute__((objc_runtime_name("WKEC_WTFContextualizedNSString")))
 @interface WTFContextualizedNSString : NSString
 - (instancetype)initWithContext:(StringView)context contents:(StringView)contents;
 @end

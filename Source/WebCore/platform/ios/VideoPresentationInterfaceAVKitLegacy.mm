@@ -75,6 +75,7 @@ SOFT_LINK_CLASS_OPTIONAL(AVKit, AVPictureInPictureContentViewController)
 
 @class WebAVMediaSelectionOption;
 
+__attribute__((objc_runtime_name("WKEC_WebAVPlayerViewControllerDelegate")))
 @interface WebAVPlayerViewControllerDelegate : NSObject <
     AVPlayerViewControllerDelegate
 #if HAVE(PIP_CONTROLLER)
@@ -330,7 +331,7 @@ static void WebAVPictureInPictureContentViewController_dealloc(id aSelf, SEL)
 static WebAVPictureInPictureContentViewController *allocWebAVPictureInPictureContentViewControllerInstance()
 {
     static Class theClass = [] {
-        auto theClass = objc_allocateClassPair(getAVPictureInPictureContentViewControllerClassSingleton(), "WebAVPictureInPictureContentViewController", 0);
+        auto theClass = objc_allocateClassPair(getAVPictureInPictureContentViewControllerClassSingleton(), "WKEC_WebAVPictureInPictureContentViewController", 0);
         class_addMethod(theClass, @selector(initWithController:), (IMP)WebAVPictureInPictureContentViewController_initWithController, "v@:@");
         class_addMethod(theClass, @selector(controller), (IMP)WebAVPictureInPictureContentViewController_controller, "@@:");
         class_addMethod(theClass, @selector(playerController), (IMP)WebAVPictureInPictureContentViewController_controller, "@@:");
@@ -351,6 +352,7 @@ static WebAVPictureInPictureContentViewController *allocWebAVPictureInPictureCon
 #endif // HAVE(PIP_CONTROLLER)
 
 NS_ASSUME_NONNULL_BEGIN
+__attribute__((objc_runtime_name("WKEC_WebAVPlayerViewController")))
 @interface WebAVPlayerViewController : NSObject<AVPlayerViewControllerDelegate>
 @property (readonly, nonatomic) WebAVPlayerLayerView *playerLayerView;
 - (instancetype)initWithFullscreenInterface:(WebCore::VideoPresentationInterfaceAVKitLegacy *)interface;

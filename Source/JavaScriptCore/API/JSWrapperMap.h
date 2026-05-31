@@ -29,6 +29,7 @@
 
 #if JSC_OBJC_API_ENABLED
 
+__attribute__((objc_runtime_name("WKEC_JSWrapperMap")))
 @interface JSWrapperMap : NSObject
 
 - (instancetype)initWithGlobalContextRef:(JSGlobalContextRef)context;

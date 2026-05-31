@@ -178,7 +178,7 @@ WebAVPlayerLayerView *allocWebAVPlayerLayerViewInstance()
 {
     static Class theClass = [] {
         ASSERT(get__AVPlayerLayerViewClassSingleton());
-        auto theClass = objc_allocateClassPair(get__AVPlayerLayerViewClassSingleton(), "WebAVPlayerLayerView", 0);
+        auto theClass = objc_allocateClassPair(get__AVPlayerLayerViewClassSingleton(), "WKEC_WebAVPlayerLayerView", 0);
         class_addMethod(theClass, @selector(dealloc), (IMP)WebAVPlayerLayerView_dealloc, "v@:");
         class_addMethod(theClass, @selector(transferVideoViewTo:), (IMP)WebAVPlayerLayerView_transferVideoViewTo, "v@:@");
         class_addMethod(theClass, @selector(setPlayerController:), (IMP)WebAVPlayerLayerView_setPlayerController, "v@:@");
@@ -195,7 +195,7 @@ WebAVPlayerLayerView *allocWebAVPlayerLayerViewInstance()
 #endif
 
         objc_registerClassPair(theClass);
-        Class metaClass = objc_getMetaClass("WebAVPlayerLayerView");
+        Class metaClass = objc_getMetaClass("WKEC_WebAVPlayerLayerView");
         class_addMethod(metaClass, @selector(layerClass), (IMP)WebAVPlayerLayerView_layerClass, "@@:");
         return theClass;
     }();
@@ -226,10 +226,10 @@ static void WebAVPictureInPicturePlayerLayerView_dealloc(id aSelf, SEL)
 WebAVPictureInPicturePlayerLayerView *allocWebAVPictureInPicturePlayerLayerViewInstance()
 {
     static Class theClass = [] {
-        auto theClass = objc_allocateClassPair(PAL::getUIViewClassSingleton(), "WebAVPictureInPicturePlayerLayerView", 0);
+        auto theClass = objc_allocateClassPair(PAL::getUIViewClassSingleton(), "WKEC_WebAVPictureInPicturePlayerLayerView", 0);
         class_addMethod(theClass, @selector(dealloc), (IMP)WebAVPictureInPicturePlayerLayerView_dealloc, "v@:");
         objc_registerClassPair(theClass);
-        Class metaClass = objc_getMetaClass("WebAVPictureInPicturePlayerLayerView");
+        Class metaClass = objc_getMetaClass("WKEC_WebAVPictureInPicturePlayerLayerView");
         class_addMethod(metaClass, @selector(layerClass), (IMP)WebAVPictureInPicturePlayerLayerView_layerClass, "@@:");
         return theClass;
     }();

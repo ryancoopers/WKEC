@@ -38,6 +38,7 @@ class PlaybackSessionInterfaceIOS;
 
 @class AVTimeRange;
 
+__attribute__((objc_runtime_name("WKEC_WebAVMediaSelectionOption")))
 @interface WebAVMediaSelectionOption : NSObject
 - (instancetype)initWithMediaType:(AVMediaType)type displayName:(NSString *)displayName extendedLanguageTag:(NSString *)extendedLanguageTag tag:(NSInteger)tag;
 
@@ -48,6 +49,7 @@ class PlaybackSessionInterfaceIOS;
 @property (nonatomic, assign) NSInteger tag;
 @end
 
+__attribute__((objc_runtime_name("WKEC_WebAVPlayerController")))
 @interface WebAVPlayerController : NSObject
 
 - (void)setAllowsPictureInPicture:(BOOL)allowsPictureInPicture;

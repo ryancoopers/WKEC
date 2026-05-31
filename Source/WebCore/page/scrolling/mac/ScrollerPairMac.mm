@@ -43,6 +43,7 @@
 #import <wtf/BlockObjCExceptions.h>
 #import <wtf/TZoneMallocInlines.h>
 
+__attribute__((objc_runtime_name("WKEC_WebScrollerImpPairDelegateMac")))
 @interface WebScrollerImpPairDelegateMac : NSObject <NSScrollerImpPairDelegate> {
     ThreadSafeWeakPtr<WebCore::ScrollerPairMac> _scrollerPair;
 }

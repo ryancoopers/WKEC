@@ -52,6 +52,7 @@
 #pragma clang diagnostic ignored "-Wunguarded-availability-new"
 
 using namespace WebCore;
+__attribute__((objc_runtime_name("WKEC_WebCoreScreenCaptureKitHelper")))
 @interface WebCoreScreenCaptureKitHelper : NSObject<SCStreamDelegate, SCStreamOutput> {
     WeakPtr<ScreenCaptureKitCaptureSource> _callback;
 }

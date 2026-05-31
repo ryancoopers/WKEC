@@ -65,6 +65,7 @@ static NSString * const InitializationDataTypeKey = @"InitializationDataType";
 static const NSInteger SecurityLevelError = -42811;
 static const size_t kMaximumDeviceIdentifierSeedSize = 20;
 
+__attribute__((objc_runtime_name("WKEC_WebCoreFPSContentKeySessionDelegate")))
 @interface WebCoreFPSContentKeySessionDelegate : NSObject <AVContentKeySessionDelegate>
 @end
 

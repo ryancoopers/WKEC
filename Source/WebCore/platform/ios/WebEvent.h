@@ -108,6 +108,7 @@ typedef enum {
 } WebKeyboardInputFlagValues;
 typedef NSUInteger WebKeyboardInputFlags;
 
+__attribute__((objc_runtime_name("WKEC_WebEvent")))
 WEBCORE_EXPORT @interface WebEvent : NSObject {
 @private
     WebEventType _type;

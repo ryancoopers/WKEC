@@ -29,6 +29,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+__attribute__((objc_runtime_name("WKEC_WebPALRegexHelper")))
 @interface WebPALRegexHelper : NSObject
 
 + (BOOL)matchPattern:(NSString *)pattern value:(NSString *)value shouldIgnoreCase:(BOOL)shouldIgnoreCase;

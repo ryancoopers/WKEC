@@ -52,6 +52,7 @@
 
 using namespace WebCore;
 
+__attribute__((objc_runtime_name("WKEC_WebAVSampleBufferStatusChangeListener")))
 @interface WebAVSampleBufferStatusChangeListener : NSObject {
     RetainPtr<PlatformLayer> _displayLayer;
     ThreadSafeWeakPtr<LocalSampleBufferDisplayLayer> _parent;

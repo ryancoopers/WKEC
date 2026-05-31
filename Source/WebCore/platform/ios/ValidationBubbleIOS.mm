@@ -103,7 +103,7 @@ static void WebValidationBubbleViewController_viewSafeAreaInsetsDidChange(WebVal
 static WebValidationBubbleViewController *allocWebValidationBubbleViewControllerInstance()
 {
     static Class theClass = [] {
-        auto theClass = objc_allocateClassPair(PAL::getUIViewControllerClassSingleton(), "WebValidationBubbleViewController", 0);
+        auto theClass = objc_allocateClassPair(PAL::getUIViewControllerClassSingleton(), "WKEC_WebValidationBubbleViewController", 0);
         class_addMethod(theClass, @selector(viewDidLoad), (IMP)WebValidationBubbleViewController_viewDidLoad, "v@:");
         class_addMethod(theClass, @selector(viewWillLayoutSubviews), (IMP)WebValidationBubbleViewController_viewWillLayoutSubviews, "v@:");
         class_addMethod(theClass, @selector(viewSafeAreaInsetsDidChange), (IMP)WebValidationBubbleViewController_viewSafeAreaInsetsDidChange, "v@:");
@@ -113,6 +113,7 @@ static WebValidationBubbleViewController *allocWebValidationBubbleViewController
     return (WebValidationBubbleViewController *)[theClass alloc];
 }
 
+__attribute__((objc_runtime_name("WKEC_WebValidationBubbleTapRecognizer")))
 @interface WebValidationBubbleTapRecognizer : NSObject
 @end
 
@@ -147,6 +148,7 @@ static WebValidationBubbleViewController *allocWebValidationBubbleViewController
 
 @end
 
+__attribute__((objc_runtime_name("WKEC_WebValidationBubbleDelegate")))
 @interface WebValidationBubbleDelegate : NSObject <UIPopoverPresentationControllerDelegate> {
 }
 @end

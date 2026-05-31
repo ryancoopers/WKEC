@@ -44,6 +44,7 @@
 
 IGNORE_CLANG_WARNINGS_BEGIN("nullability-completeness")
 
+__attribute__((objc_runtime_name("WKEC_TextureAndClearColor")))
 @interface TextureAndClearColor : NSObject
 - (instancetype)initWithTexture:(id<MTLTexture> _Nonnull)texture NS_DESIGNATED_INITIALIZER;
 - (instancetype)init NS_UNAVAILABLE;

@@ -70,6 +70,7 @@
 
 #if ENABLE(IMAGE_ANALYSIS_ENHANCEMENTS)
 
+__attribute__((objc_runtime_name("WKEC_FakeImageAnalysisResult")))
 @interface FakeImageAnalysisResult : NSObject
 - (instancetype)initWithString:(NSString *)fullText;
 @end
@@ -277,7 +278,7 @@ DDScannerResult *Internals::fakeDataDetectorResultForTesting()
 
 RefPtr<SharedBuffer> Internals::pngDataForTesting()
 {
-    NSBundle *webCoreBundle = [NSBundle bundleForClass:NSClassFromString(@"WebCoreBundleFinder")];
+    NSBundle *webCoreBundle = [NSBundle bundleForClass:NSClassFromString(@"WKEC_WebCoreBundleFinder")];
     return SharedBuffer::createWithContentsOfFile([webCoreBundle pathForResource:@"missingImage" ofType:@"png"]);
 }
 

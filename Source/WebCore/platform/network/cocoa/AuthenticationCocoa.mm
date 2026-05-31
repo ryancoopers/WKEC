@@ -37,6 +37,7 @@ using WebCore::AuthenticationClient;
 using WebCore::Credential;
 using WebCore::core;
 
+__attribute__((objc_runtime_name("WKEC_WebCoreAuthenticationClientAsChallengeSender")))
 @interface WebCoreAuthenticationClientAsChallengeSender : NSObject <NSURLAuthenticationChallengeSender> {
     WeakPtr<AuthenticationClient> m_client;
 }

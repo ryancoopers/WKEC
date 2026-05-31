@@ -35,6 +35,7 @@
 
 @class NSTextField;
 
+__attribute__((objc_runtime_name("WKEC_WebCoreFullScreenWarningView")))
 WEBCORE_EXPORT @interface WebCoreFullScreenWarningView : NSBox {
 @private
     RetainPtr<NSTextField> _textField;

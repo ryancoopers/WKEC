@@ -49,6 +49,7 @@ or Swift object that is exported to JavaScript. It is incorrect to store a JSVal
 in an object that is exported to JavaScript, since doing so creates a retain cycle.
 */ 
 NS_CLASS_AVAILABLE(10_9, 7_0)
+__attribute__((objc_runtime_name("WKEC_JSManagedValue")))
 @interface JSManagedValue : NSObject
 
 /*!

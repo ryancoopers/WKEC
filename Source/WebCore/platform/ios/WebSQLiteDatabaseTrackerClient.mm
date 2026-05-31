@@ -35,6 +35,7 @@
 #import <wtf/MainThread.h>
 #import <wtf/NeverDestroyed.h>
 
+__attribute__((objc_runtime_name("WKEC_WebDatabaseTransactionBackgroundTaskController")))
 @interface WebDatabaseTransactionBackgroundTaskController : NSObject
 + (void)startBackgroundTask;
 + (void)endBackgroundTask;

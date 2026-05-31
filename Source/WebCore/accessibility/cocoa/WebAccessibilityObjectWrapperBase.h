@@ -69,6 +69,7 @@ void attributedStringSetSpelling(NSMutableAttributedString *, Node&, StringView,
 RetainPtr<NSAttributedString> attributedStringCreate(Node&, StringView, const SimpleRange&, AXCoreObject::SpellCheck);
 }
 
+__attribute__((objc_runtime_name("WKEC_WebAccessibilityObjectWrapperBase")))
 @interface WebAccessibilityObjectWrapperBase : NSObject {
     WeakPtr<WebCore::AccessibilityObject> m_axObject;
 

@@ -15,7 +15,7 @@
 #import "RTCVideoEncoder.h"
 
 RTC_OBJC_EXPORT
-__attribute__((objc_runtime_name("WK_RTCVideoEncoderH265")))
+__attribute__((objc_runtime_name("WKEC_RTCVideoEncoderH265")))
 @interface RTCVideoEncoderH265 : NSObject <RTCVideoEncoder>
 
 - (instancetype)initWithCodecInfo:(RTCVideoCodecInfo *)codecInfo;

@@ -30,6 +30,7 @@
 
 #import <WebCore/WAKView.h>
 
+__attribute__((objc_runtime_name("WKEC_WAKClipView")))
 WEBCORE_EXPORT @interface WAKClipView : WAKView
 
 @property (nonatomic, readonly) WAKView *documentView;

@@ -42,6 +42,7 @@ NS_ASSUME_NONNULL_BEGIN
 @class AVContentKeySession;
 @class WebAVContentKeyGroup;
 
+__attribute__((objc_runtime_name("WKEC_WebAVContentKeyGroup")))
 @interface WebAVContentKeyGroup : NSObject <WebAVContentKeyGrouping>
 
 - (instancetype)initWithContentKeySession:(AVContentKeySession *)contentKeySession dataSource:(WebCore::ContentKeyGroupDataSource&)dataSource NS_DESIGNATED_INITIALIZER;

@@ -36,6 +36,7 @@
 struct WGPURenderBundleImpl {
 };
 
+__attribute__((objc_runtime_name("WKEC_ResourceUsageAndRenderStage")))
 @interface ResourceUsageAndRenderStage : NSObject
 - (instancetype)initWithUsage:(MTLResourceUsage)usage renderStages:(MTLRenderStages)renderStages entryUsage:(OptionSet<WebGPU::BindGroupEntryUsage>)entryUsage binding:(uint32_t)binding resource:(WebGPU::BindGroupEntryUsageData::Resource)resource;
 

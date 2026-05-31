@@ -34,6 +34,7 @@
 
 @class WebEvent;
 
+__attribute__((objc_runtime_name("WKEC_WAKResponder")))
 WEBCORE_EXPORT @interface WAKResponder : NSObject
 {
 

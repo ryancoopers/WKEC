@@ -26,7 +26,7 @@ typedef NS_ENUM(NSInteger, RTCVideoRotation) {
 
 // RTCVideoFrame is an ObjectiveC version of webrtc::VideoFrame.
 RTC_OBJC_EXPORT
-__attribute__((objc_runtime_name("WK_RTCVideoFrame")))
+__attribute__((objc_runtime_name("WKEC_RTCVideoFrame")))
 @interface RTCVideoFrame : NSObject
 
 /** Width without rotation applied. */

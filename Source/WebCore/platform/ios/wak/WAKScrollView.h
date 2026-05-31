@@ -34,6 +34,7 @@
 
 @class WAKClipView;
 
+__attribute__((objc_runtime_name("WKEC_WAKScrollView")))
 WEBCORE_EXPORT @interface WAKScrollView : WAKView <WebCoreFrameScrollView>
 {
     WAKView *_documentView;  // Only here so the ObjC instance stays around.

@@ -201,6 +201,7 @@ enum MediaPlayerAVFoundationObservationContext {
     MediaPlayerAVFoundationObservationContextAVPlayerLayer,
 };
 
+__attribute__((objc_runtime_name("WKEC_WebCoreAVFMovieObserver")))
 @interface WebCoreAVFMovieObserver : NSObject <AVPlayerItemLegibleOutputPushDelegate, AVPlayerItemMetadataOutputPushDelegate, AVPlayerItemMetadataCollectorPushDelegate>
 {
     ThreadSafeWeakPtr<MediaPlayerPrivateAVFoundationObjC> m_player;
@@ -219,6 +220,7 @@ enum MediaPlayerAVFoundationObservationContext {
 - (void)metadataOutput:(AVPlayerItemMetadataOutput *)output didOutputTimedMetadataGroups:(NSArray<AVTimedMetadataGroup *> *)groups fromPlayerItemTrack:(AVPlayerItemTrack *)track;
 @end
 
+__attribute__((objc_runtime_name("WKEC_WebCoreAVFLoaderDelegate")))
 @interface WebCoreAVFLoaderDelegate : NSObject<AVAssetResourceLoaderDelegate> {
     ThreadSafeWeakPtr<MediaPlayerPrivateAVFoundationObjC> m_player;
 }

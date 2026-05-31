@@ -64,6 +64,7 @@ using namespace WebCore;
 
 class MediaSessionHelperIOS;
 
+__attribute__((objc_runtime_name("WKEC_WebMediaSessionHelper")))
 @interface WebMediaSessionHelper : NSObject {
     ThreadSafeWeakPtr<MediaSessionHelperIOS> _callback;
 

@@ -43,6 +43,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 extern NSErrorDomain const WebMockMediaDeviceRouteErrorDomain;
 
+__attribute__((objc_runtime_name("WKEC_WebMockMediaDeviceRoute")))
 @interface WebMockMediaDeviceRoute : NSObject <AVMediaSource, WebMediaDevicePlatformRoute>
 @property (nonatomic, nullable, setter=setURLCallback:) WebCore::MockMediaDeviceRouteURLCallback* urlCallback;
 @property (copy) NSString *routeDisplayName;

@@ -42,6 +42,7 @@ class VisiblePosition;
 
 enum class IsAccessibilityElement : uint8_t { No, Yes, Unknown };
 
+__attribute__((objc_runtime_name("WKEC_WebAccessibilityObjectWrapper")))
 @interface WebAccessibilityObjectWrapper : WebAccessibilityObjectWrapperBase {
     // Cached data to avoid frequent re-computation.
     IsAccessibilityElement m_isAccessibilityElement;
@@ -79,6 +80,7 @@ enum class IsAccessibilityElement : uint8_t { No, Yes, Unknown };
 
 @end
 
+__attribute__((objc_runtime_name("WKEC_WebAccessibilityTextMarker")))
 @interface WebAccessibilityTextMarker : NSObject {
     WebCore::AXObjectCache* _cache;
     WebCore::TextMarkerData _textMarkerData;

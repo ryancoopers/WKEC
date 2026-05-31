@@ -34,6 +34,7 @@ typedef struct opaqueCMSampleBuffer *CMSampleBufferRef;
 
 @class WebSpeechRecognizerTaskImpl;
 
+__attribute__((objc_runtime_name("WKEC_WebSpeechRecognizerTask")))
 @interface WebSpeechRecognizerTask : NSObject {
 @private
     RetainPtr<WebSpeechRecognizerTaskImpl> _impl;

@@ -39,6 +39,7 @@
 #import "webkit_sdk/objc/components/video_codec/RTCVideoDecoderVTBVP9.h"
 #import "webkit_sdk/objc/native/src/objc_frame_buffer.h"
 
+__attribute__((objc_runtime_name("WKEC_RTCLocalVideoH264H265VP9Decoder")))
 @interface WK_RTCLocalVideoH264H265VP9Decoder : NSObject
 - (instancetype)initH264DecoderWithCallback:(webrtc::LocalDecoderCallback)callback;
 - (instancetype)initH265DecoderWithCallback:(webrtc::LocalDecoderCallback)callback;

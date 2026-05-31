@@ -32,6 +32,7 @@
 #import <wtf/ProcessPrivilege.h>
 #import <wtf/TZoneMallocInlines.h>
 
+__attribute__((objc_runtime_name("WKEC_WebNSHTTPCookieStorageDummyForInternalAccess")))
 @interface WebNSHTTPCookieStorageDummyForInternalAccess : NSObject {
 @public
     RetainPtr<NSHTTPCookieStorageInternal> _internal;
@@ -45,6 +46,7 @@
 - (void)registerForPostingNotificationsWithContext:(NSHTTPCookieStorage *)context;
 @end
 
+__attribute__((objc_runtime_name("WKEC_WebCookieObserverAdapter")))
 @interface WebCookieObserverAdapter : NSObject {
     WeakPtr<WebCore::CookieStorageObserver> observer;
 }

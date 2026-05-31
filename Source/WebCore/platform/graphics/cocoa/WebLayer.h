@@ -25,11 +25,13 @@
 
 #include <QuartzCore/QuartzCore.h>
 
+__attribute__((objc_runtime_name("WKEC_WebSimpleLayer")))
 @interface WebSimpleLayer : CALayer {
     BOOL _isRenderingInContext;
 }
 @property (nonatomic, readonly) BOOL isRenderingInContext;
 @end
 
+__attribute__((objc_runtime_name("WKEC_WebLayer")))
 @interface WebLayer : WebSimpleLayer
 @end

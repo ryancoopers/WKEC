@@ -26,6 +26,7 @@
 #import <CoreGraphics/CGGeometry.h>
 #import <Foundation/NSObject.h>
 
+__attribute__((objc_runtime_name("WKEC_WebEventRegion")))
 WEBCORE_EXPORT @interface WebEventRegion : NSObject <NSCopying>
 {
     CGPoint p1, p2, p3, p4;

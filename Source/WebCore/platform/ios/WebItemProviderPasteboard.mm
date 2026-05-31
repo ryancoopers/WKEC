@@ -127,6 +127,7 @@ static BOOL typeConformsToTypes(NSString *type, NSArray *conformsToTypes)
 
 @end
 
+__attribute__((objc_runtime_name("WKEC_WebItemProviderDataRegistrar")))
 @interface WebItemProviderDataRegistrar : NSObject <WebItemProviderRegistrar>
 - (instancetype)initWithData:(NSData *)data type:(NSString *)utiType;
 @property (nonatomic, readonly) NSString *typeIdentifier;
@@ -183,6 +184,7 @@ static BOOL typeConformsToTypes(NSString *type, NSArray *conformsToTypes)
 
 @end
 
+__attribute__((objc_runtime_name("WKEC_WebItemProviderWritableObjectRegistrar")))
 @interface WebItemProviderWritableObjectRegistrar : NSObject <WebItemProviderRegistrar>
 - (instancetype)initWithObject:(id<NSItemProviderWriting>)representingObject;
 @property (nonatomic, readonly) id<NSItemProviderWriting> representingObject;
@@ -223,6 +225,7 @@ static BOOL typeConformsToTypes(NSString *type, NSArray *conformsToTypes)
 
 @end
 
+__attribute__((objc_runtime_name("WKEC_WebItemProviderPromisedFileRegistrar")))
 @interface WebItemProviderPromisedFileRegistrar : NSObject <WebItemProviderRegistrar>
 - (instancetype)initWithType:(NSString *)utiType callback:(void(^)(WebItemProviderFileCallback))callback;
 @property (nonatomic, readonly) NSString *typeIdentifier;
@@ -378,6 +381,7 @@ static UIPreferredPresentationStyle uiPreferredPresentationStyle(WebPreferredPre
 
 @end
 
+__attribute__((objc_runtime_name("WKEC_WebItemProviderLoadResult")))
 @interface WebItemProviderLoadResult : NSObject
 
 - (instancetype)initWithItemProvider:(NSItemProvider *)itemProvider typesToLoad:(NSArray<NSString *> *)typesToLoad;

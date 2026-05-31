@@ -61,6 +61,7 @@ static double WebAVPlayerControllerLiveStreamSeekableTimeRangeDurationHysteresis
 static double WebAVPlayerControllerLiveStreamMinimumTargetDuration = 1.0; // Minimum segment duration to be considered valid.
 static double WebAVPlayerControllerLiveStreamSeekableTimeRangeMinimumDuration = 30.0;
 
+__attribute__((objc_runtime_name("WKEC_WebAVPlayerControllerForwarder")))
 @interface WebAVPlayerControllerForwarder : NSObject
 @property (readwrite, strong) WebAVPlayerController *playerController;
 @end
@@ -193,7 +194,7 @@ static Class createWebAVPlayerControllerForwarderClassSingleton()
 
     Class superClass = getAVPlayerControllerClassSingleton();
     Class implClass = [WebAVPlayerControllerForwarder class];
-    Class newClass = objc_allocateClassPair(superClass, "WebAVPlayerControllerForwarder_AVKitCompatible", 0);
+    Class newClass = objc_allocateClassPair(superClass, "WKEC_WebAVPlayerControllerForwarder_AVKitCompatible", 0);
 
     // Add ivar BEFORE registering the class pair (required by ObjC runtime).
     class_addIvar(newClass, "_playerController", sizeof(WebAVPlayerController *), log2(sizeof(WebAVPlayerController *)), @encode(WebAVPlayerController *));

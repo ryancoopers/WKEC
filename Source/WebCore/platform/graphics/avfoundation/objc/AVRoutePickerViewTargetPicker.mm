@@ -44,6 +44,7 @@ SOFT_LINK_CLASS_OPTIONAL(AVKit, AVRoutePickerView)
 
 using namespace WebCore;
 
+__attribute__((objc_runtime_name("WKEC_WebAVRoutePickerViewHelper")))
 @interface WebAVRoutePickerViewHelper : NSObject <AVRoutePickerViewDelegate> {
     WeakPtr<AVRoutePickerViewTargetPicker> m_callback;
 }

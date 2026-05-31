@@ -52,6 +52,7 @@
 - (void)_scheduleRenderingUpdateForPendingTileCacheRepaint;
 @end
 
+__attribute__((objc_runtime_name("WKEC_LegacyTileCacheTombstone")))
 @interface LegacyTileCacheTombstone : NSObject {
     BOOL dead;
 }

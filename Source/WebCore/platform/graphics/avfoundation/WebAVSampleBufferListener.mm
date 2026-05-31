@@ -61,6 +61,7 @@ static bool isSampleBufferVideoRenderer(id object)
 }
 }
 
+__attribute__((objc_runtime_name("WKEC_WebAVSampleBufferListenerPrivate")))
 @interface WebAVSampleBufferListenerPrivate : NSObject {
     ThreadSafeWeakPtr<WebCore::WebAVSampleBufferListenerClient> _client WTF_GUARDED_BY_CAPABILITY(mainThread);
     Vector<RetainPtr<WebSampleBufferVideoRendering>> _videoRenderers;

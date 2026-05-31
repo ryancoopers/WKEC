@@ -35,6 +35,7 @@
 @class NSTextField;
 @class NSVisualEffectView;
 
+__attribute__((objc_runtime_name("WKEC_WebCoreFullScreenPlaceholderView")))
 WEBCORE_EXPORT @interface WebCoreFullScreenPlaceholderView : NSView {
 @private
     RetainPtr<NSVisualEffectView> _effectView;

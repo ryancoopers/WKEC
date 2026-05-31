@@ -44,6 +44,7 @@ typedef NS_ENUM(NSInteger, JSScriptType) {
 
 
 JSC_CLASS_AVAILABLE(macos(10.15), ios(13.0))
+__attribute__((objc_runtime_name("WKEC_JSScript")))
 @interface JSScript : NSObject
 
 /*!

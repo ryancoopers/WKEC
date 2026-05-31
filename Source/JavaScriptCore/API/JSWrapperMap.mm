@@ -383,6 +383,7 @@ static void copyPrototypeProperties(JSContext *context, Class objcClass, Protoco
     }
 }
 
+__attribute__((objc_runtime_name("WKEC_JSObjCClassInfo")))
 @interface JSObjCClassInfo : NSObject {
     Class m_class;
     bool m_block;
@@ -685,6 +686,7 @@ id tryUnwrapObjcObject(JSGlobalContextRef context, JSValueRef value)
 }
 
 // This class ensures that the JSExport protocol is registered with the runtime.
+__attribute__((objc_runtime_name("WKEC_JSExport")))
 NS_ROOT_CLASS @interface JSExport <JSExport>
 @end
 @implementation JSExport

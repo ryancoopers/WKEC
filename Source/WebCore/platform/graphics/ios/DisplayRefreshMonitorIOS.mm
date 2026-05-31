@@ -39,6 +39,7 @@ using WebCore::DisplayRefreshMonitorIOS;
 
 constexpr WebCore::FramesPerSecond DisplayLinkFramesPerSecond = 60;
 
+__attribute__((objc_runtime_name("WKEC_WebDisplayLinkHandler")))
 @interface WebDisplayLinkHandler : NSObject
 {
     DisplayRefreshMonitorIOS* m_monitor;

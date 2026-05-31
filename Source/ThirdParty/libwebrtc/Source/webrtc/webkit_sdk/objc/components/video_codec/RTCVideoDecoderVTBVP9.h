@@ -29,7 +29,7 @@
 #import "RTCVideoDecoder.h"
 
 RTC_OBJC_EXPORT
-__attribute__((objc_runtime_name("WK_RTCVideoDecoderVTBVP9")))
+__attribute__((objc_runtime_name("WKEC_RTCVideoDecoderVTBVP9")))
 @interface RTCVideoDecoderVTBVP9 : NSObject <RTCVideoDecoder>
 - (void)setWidth:(uint16_t)width height:(uint16_t)height;
 - (NSInteger)decodeData:(const uint8_t *)data

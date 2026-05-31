@@ -41,6 +41,7 @@
 
 #if HAVE(HISERVICES)
 
+__attribute__((objc_runtime_name("WKEC_WebCustomCursor")))
 @interface WebCustomCursor : NSCursor
 
 - (instancetype)initWithType:(CoreCursorType)cursorType;

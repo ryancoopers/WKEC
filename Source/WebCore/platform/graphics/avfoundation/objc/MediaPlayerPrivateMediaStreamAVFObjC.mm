@@ -57,6 +57,7 @@
 #import <pal/cf/CoreMediaSoftLink.h>
 #import <pal/cocoa/AVFoundationSoftLink.h>
 
+__attribute__((objc_runtime_name("WKEC_WebRootSampleBufferBoundsChangeListener")))
 @interface WebRootSampleBufferBoundsChangeListener : NSObject {
     Function<void()> _callback;
     RetainPtr<CALayer> _rootLayer;

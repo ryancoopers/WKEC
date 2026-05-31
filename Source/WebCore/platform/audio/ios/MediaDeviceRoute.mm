@@ -100,6 +100,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 static void* WebMediaSourceObserverContext = &WebMediaSourceObserverContext;
 
+__attribute__((objc_runtime_name("WKEC_WebMediaSourceObserver")))
 @interface WebMediaSourceObserver : NSObject
 + (instancetype)new NS_UNAVAILABLE;
 - (instancetype)init NS_UNAVAILABLE;

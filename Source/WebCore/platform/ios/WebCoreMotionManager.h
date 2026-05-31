@@ -39,6 +39,7 @@ class DeviceMotionClientIOS;
 class MotionManagerClient;
 }
 
+__attribute__((objc_runtime_name("WKEC_WebCoreMotionManager")))
 WEBCORE_EXPORT @interface WebCoreMotionManager : NSObject {
     RetainPtr<CMMotionManager> m_motionManager;
     RetainPtr<CLLocationManager> m_locationManager;

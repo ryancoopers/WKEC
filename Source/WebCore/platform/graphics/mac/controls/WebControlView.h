@@ -27,16 +27,19 @@
 
 #if PLATFORM(MAC)
 
+__attribute__((objc_runtime_name("WKEC_WebControlWindow")))
 @interface WebControlWindow : NSWindow
 @property (class) BOOL hasKeyAppearance;
 - (BOOL)_needsToResetDragMargins;
 - (void)_setNeedsToResetDragMargins:(BOOL)needs;
 @end
 
+__attribute__((objc_runtime_name("WKEC_WebControlView")))
 @interface WebControlView : NSControl
 @property (class) NSRect clipBounds;
 @end
 
+__attribute__((objc_runtime_name("WKEC_WebControlTextFieldCell")))
 @interface WebControlTextFieldCell : NSTextFieldCell
 @end
 

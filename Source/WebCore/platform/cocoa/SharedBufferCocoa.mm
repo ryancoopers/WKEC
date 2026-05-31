@@ -37,6 +37,7 @@
 
 #import <pal/cf/CoreMediaSoftLink.h>
 
+__attribute__((objc_runtime_name("WKEC_WebCoreSharedBufferData")))
 @interface WebCoreSharedBufferData : NSData
 - (instancetype)initWithDataSegment:(const WebCore::DataSegment&)dataSegment position:(NSUInteger)position size:(NSUInteger)size;
 @end

@@ -65,6 +65,7 @@
 
 #pragma mark -
 
+__attribute__((objc_runtime_name("WKEC_WebCoreSharedBufferResourceLoaderDelegate")))
 @interface WebCoreSharedBufferResourceLoaderDelegate : NSObject<AVAssetResourceLoaderDelegate> {
     ThreadSafeWeakPtr<WebCore::ImageDecoderAVFObjC> _parent;
     long long _expectedContentSize;

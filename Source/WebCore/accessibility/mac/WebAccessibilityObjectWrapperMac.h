@@ -50,6 +50,7 @@ extern "C" AXUIElementRef NSAccessibilityCreateAXUIElementRef(id element);
 #define AXTextMarkerNodeTreeDebugDescriptionAttribute @"AXTextMarkerNodeTreeDebugDescription"
 #endif
 
+__attribute__((objc_runtime_name("WKEC_WebAccessibilityObjectWrapper")))
 @interface WebAccessibilityObjectWrapper : WebAccessibilityObjectWrapperBase
 
 // When a plugin uses a WebKit control to act as a surrogate view (e.g. PDF use WebKit to create text fields).

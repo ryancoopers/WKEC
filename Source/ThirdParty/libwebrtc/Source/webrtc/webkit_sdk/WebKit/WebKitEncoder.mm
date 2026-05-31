@@ -39,6 +39,7 @@
 #include "webkit_sdk/objc/native/src/objc_frame_buffer.h"
 #include "webkit_sdk/objc/native/api/video_encoder_factory.h"
 
+__attribute__((objc_runtime_name("WKEC_RTCLocalVideoH264H265Encoder")))
 @interface WK_RTCLocalVideoH264H265Encoder : NSObject
 - (instancetype)initWithCodecInfo:(RTCVideoCodecInfo*)codecInfo scalabilityMode:(webrtc::LocalEncoderScalabilityMode)scalabilityMode;
 - (webrtc::VideoCodecType)codecType;

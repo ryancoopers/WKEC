@@ -46,6 +46,7 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #endif
 
+__attribute__((objc_runtime_name("WKEC_WebCoreBundleFinder")))
 @interface WebCoreBundleFinder : NSObject
 @end
 

@@ -40,6 +40,7 @@ static constexpr size_t maximumRecognitionDuration = 60 * 60;
 
 NS_ASSUME_NONNULL_BEGIN
 
+__attribute__((objc_runtime_name("WKEC_WebSpeechRecognizerTaskImpl")))
 @interface WebSpeechRecognizerTaskImpl : NSObject<SFSpeechRecognitionTaskDelegate, SFSpeechRecognizerDelegate> {
 @private
     WTF::Markable<WebCore::SpeechRecognitionConnectionClientIdentifier> _identifier;

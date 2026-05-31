@@ -40,6 +40,7 @@ class ResourceHandle;
 class SynchronousLoaderMessageQueue;
 }
 
+__attribute__((objc_runtime_name("WKEC_WebCoreResourceHandleAsOperationQueueDelegate")))
 @interface WebCoreResourceHandleAsOperationQueueDelegate : NSObject <NSURLConnectionDelegate> {
     Lock m_lock;
     WeakPtr<WebCore::ResourceHandle> m_handle WTF_GUARDED_BY_LOCK(m_lock);
@@ -57,6 +58,7 @@ class SynchronousLoaderMessageQueue;
 - (id)initWithHandle:(WebCore::ResourceHandle*)handle messageQueue:(RefPtr<WebCore::SynchronousLoaderMessageQueue>&&)messageQueue;
 @end
 
+__attribute__((objc_runtime_name("WKEC_WebCoreResourceHandleWithCredentialStorageAsOperationQueueDelegate")))
 @interface WebCoreResourceHandleWithCredentialStorageAsOperationQueueDelegate : WebCoreResourceHandleAsOperationQueueDelegate
 
 @end

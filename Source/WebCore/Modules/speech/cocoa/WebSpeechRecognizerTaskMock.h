@@ -33,6 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class WebSpeechRecognizerTaskMock;
 
+__attribute__((objc_runtime_name("WKEC_WebSpeechRecognizerTaskMock")))
 @interface WebSpeechRecognizerTaskMock : WebSpeechRecognizerTask {
 @private
     WTF::Markable<WebCore::SpeechRecognitionConnectionClientIdentifier> _identifier;

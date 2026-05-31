@@ -47,6 +47,7 @@
 
 #import <pal/cocoa/AVFoundationSoftLink.h>
 
+__attribute__((objc_runtime_name("WKEC_WebAVAudioSessionAvailableInputsListener")))
 @interface WebAVAudioSessionAvailableInputsListener : NSObject {
     WebCore::AVAudioSessionCaptureDeviceManager* _callback;
 }

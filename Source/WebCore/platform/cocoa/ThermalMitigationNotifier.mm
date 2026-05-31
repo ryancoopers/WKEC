@@ -41,6 +41,7 @@ static bool isThermalMitigationEnabled()
 }
 }
 
+__attribute__((objc_runtime_name("WKEC_WebThermalMitigationObserver")))
 @interface WebThermalMitigationObserver : NSObject
 @property (nonatomic) WeakPtr<WebCore::ThermalMitigationNotifier> notifier;
 @property (nonatomic, readonly) BOOL thermalMitigationEnabled;

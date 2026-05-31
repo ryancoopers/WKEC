@@ -53,6 +53,7 @@ SOFT_LINK(Bom, BOMCopierCopyWithOptions, int, (BOMCopier copier, const char* fro
 #define kBOMCopierOptionKeepParentKey CFSTR("keepParent")
 #define kBOMCopierOptionCopyResourcesKey CFSTR("copyResources")
 
+__attribute__((objc_runtime_name("WKEC_WTFWebFileManagerDelegate")))
 @interface WTFWebFileManagerDelegate : NSObject <NSFileManagerDelegate>
 @end
 

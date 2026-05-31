@@ -110,6 +110,7 @@ static MonotonicTime mediaTimeToCurrentTime(CFTimeInterval t)
 } // namespace WebCore
 
 // Delegate for animationDidStart callback
+__attribute__((objc_runtime_name("WKEC_WebAnimationDelegate")))
 @interface WebAnimationDelegate : NSObject {
     ThreadSafeWeakPtr<WebCore::PlatformCALayer> m_owner;
 }
