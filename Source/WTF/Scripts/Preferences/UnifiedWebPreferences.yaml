@@ -151,7 +151,7 @@ AcceleratedDrawingEnabled:
     WebKit:
       default: true
     WebCore:
-      default: false
+      default: true
 
 AcceleratedFiltersEnabled:
   type: bool
@@ -166,7 +166,7 @@ AcceleratedFiltersEnabled:
     WebKit:
       default: false
     WebCore:
-      default: false
+      default: true
 
 AccentColorEnabled:
   type: bool
@@ -1697,7 +1697,7 @@ CanvasUsesAcceleratedDrawing:
     WebKit:
       default: true
     WebCore:
-      default: false
+      default: true
 
 CaptionDisplaySettingsEnabled:
   type: bool
