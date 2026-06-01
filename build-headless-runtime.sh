@@ -80,8 +80,13 @@ build_config() {
 
     # Build only the embedded frameworks, not the WebKit/WebKitLegacy umbrella
     # (WebKitLegacy re-exports bridge classes this fork renames and would fail to link).
+    # libwebrtc and ANGLE (dynamic) must precede WebCore: each installs the
+    # headers WebCore compiles against (webrtc/* SPI such as CMBaseObjectSPI.h
+    # used by PAL's CoreMedia soft-link; ANGLE/* for the GLES backend) into the
+    # build's usr/local/include, and each produces a dylib the runtime stages
+    # (libwebrtc.dylib, libANGLE-shared.dylib).
     echo "==> Building WKEC frameworks ($config)"
-    for scheme in JavaScriptCore WebGPU WebCore; do
+    for scheme in JavaScriptCore WebGPU libwebrtc "ANGLE (dynamic)" WebCore; do
         echo "    building scheme: $scheme"
         xcodebuild -workspace WebKit.xcworkspace -scheme "$scheme" -configuration "$config" \
             SYMROOT="$WK_OUT" OBJROOT="$WK_OUT" build
